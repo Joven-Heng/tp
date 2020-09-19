@@ -95,8 +95,9 @@ public class AddressBookParserTest {
     @Test
     public void parseCommand_policy() throws Exception {
         final Policy policy = new Policy("Some policy");
-        PolicyCommand command = (PolicyCommand) parser.parseCommand(PolicyCommand.COMMAND_WORD + " " +
-                INDEX_FIRST_PERSON.getOneBased() + " " + PREFIX_POLICY + policy.value);
+        PolicyCommand command = (PolicyCommand) parser.parseCommand(
+                PolicyCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased() + " "
+                        + PREFIX_POLICY + policy.value);
         assertEquals(new PolicyCommand(INDEX_FIRST_PERSON, policy), command);
     }
 

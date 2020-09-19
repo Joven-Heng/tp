@@ -1,6 +1,5 @@
 package seedu.address.logic.commands;
 
-
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_POLICY_AMY;
@@ -10,7 +9,6 @@ import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.showPersonAtIndex;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
-
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
 import org.junit.jupiter.api.Test;
@@ -52,8 +50,8 @@ public class PolicyCommandTest {
         Person firstPerson = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
         Person editedPerson = new PersonBuilder(firstPerson).withPolicy("").build();
 
-        PolicyCommand policyCommand = new PolicyCommand(INDEX_FIRST_PERSON
-                , new Policy(editedPerson.getPolicy().toString()));
+        PolicyCommand policyCommand = new PolicyCommand(INDEX_FIRST_PERSON,
+                new Policy(editedPerson.getPolicy().toString()));
 
         String expectedMessage = String.format(PolicyCommand.MESSAGE_DELETE_REMARK_SUCCESS, editedPerson);
 

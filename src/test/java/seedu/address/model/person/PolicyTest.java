@@ -25,7 +25,7 @@ public class PolicyTest {
         assertFalse(policy.equals(null));
 
         // different remark -> returns false
-        Policy differentPolicy= new Policy("Bye");
+        Policy differentPolicy = new Policy("Bye");
         assertFalse(policy.equals(differentPolicy));
     }
 }

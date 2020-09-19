@@ -41,4 +41,4 @@ public class PolicyCommandParserTest {
         //no index
         assertParseFailure(parser, PolicyCommand.COMMAND_WORD + " " + nonEmptyPolicy, expectedMessage);
     }
-;}
+}
