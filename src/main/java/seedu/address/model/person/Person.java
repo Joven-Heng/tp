@@ -19,6 +19,7 @@ public class Person {
     private final Name name;
     private final Phone phone;
     private final Email email;
+    private final Policy policy;
 
     // Data fields
     private final Address address;
@@ -27,12 +28,13 @@ public class Person {
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
-        requireAllNonNull(name, phone, email, address, tags);
+    public Person(Name name, Phone phone, Email email, Address address, Policy policy, Set<Tag> tags) {
+        requireAllNonNull(name, phone, email, address, policy, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
+        this.policy = policy;
         this.tags.addAll(tags);
     }
 
@@ -50,6 +52,10 @@ public class Person {
 
     public Address getAddress() {
         return address;
+    }
+
+    public Policy getPolicy() {
+        return policy;
     }
 
     /**
@@ -93,13 +99,14 @@ public class Person {
                 && otherPerson.getPhone().equals(getPhone())
                 && otherPerson.getEmail().equals(getEmail())
                 && otherPerson.getAddress().equals(getAddress())
+                && otherPerson.getPolicy().equals(getPolicy())
                 && otherPerson.getTags().equals(getTags());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, tags);
+        return Objects.hash(name, phone, email, address, policy, tags);
     }
 
     @Override
@@ -112,6 +119,8 @@ public class Person {
                 .append(getEmail())
                 .append(" Address: ")
                 .append(getAddress())
+                .append(" Policy: ")
+                .append(getPolicy())
                 .append(" Tags: ");
         getTags().forEach(builder::append);
         return builder.toString();
